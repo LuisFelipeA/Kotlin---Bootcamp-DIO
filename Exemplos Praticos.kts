@@ -1,4 +1,4 @@
---Hello World
+//--Hello World
 
 package org.kotlinlang.play         // 1
 
@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
 }
 
 
---Funções - Valores de Parametro Padrão e Argumentos Nomeados
+//--Funções - Valores de Parametro Padrão e Argumentos Nomeados
 
 fun printMessage(message: String): Unit {
     println(message)
@@ -36,7 +36,7 @@ fun main() {
 }
 
 
--- Funções - Parametros vararg
+//-- Funções - Parametros vararg
 
 fun main() {
    fun printALL(vararg messages: String) {
@@ -59,10 +59,10 @@ fun main() {
 }
 
 
---Variaveis var e val
+//--Variaveis var e val
 
-// var - pode ser alterado
-// val - não pode ser alterado
+    //var - pode ser alterado
+    //val - não pode ser alterado
 
 fun someCondition() = true
 
@@ -73,12 +73,12 @@ fun main() {
     println(a)
     val b: Int = 1
     println(b)
-    // b = 3 -- da erro pois não pode ser alterado
+    b = 3 //da erro pois não pode ser alterado
     val c = 3
     println(c)
 
     var e: Int
-    // prinln(e)  -- da erro pois não tem valor na variavel 'e'
+    prinln(e) //da erro pois não tem valor na variavel 'e'
    
     val d: Int
     
@@ -88,4 +88,47 @@ fun main() {
     else{d = 2}
     
     println(d)
+}
+
+
+//--Null Safety
+
+fun main() {
+    var neverNull: String = "Não pode ser null"
+    neverNull = null //da erro pois não pode ser null
+    
+    var nullable: String? = "Pode ser null"
+    nullable = null
+    
+    var inferredNonNull = "O compilador assume que é não null"
+    inferredNonNull = null //da erro pois não pode ser null
+    
+    fun strLength(notNull: String): Int {
+        return notNull.length
+    }
+
+    //forçando a função para receber null
+    fun strLength(str: String?): Int {
+        return str?.length ?: 0
+    }
+
+    println(strLength(neverNull))
+    println(strLength(nullable)) //da erro pois a função não recebe valor null
+}
+
+//Validando se a string é vazia ou null, caso não seja, mostra o tamanho
+
+fun describeString(maybeString: String?): String {
+    if (maybeString != null && maybeString.length > 0){
+        return "Tamanho da string ${maybeString.length}"
+	} else {
+        return "Empty or null string"
+    }
+}
+
+fun main(){
+    println(describeString(null))
+    println(describeString(""))
+	println(describeString("Luis"))
+
 }
