@@ -70,3 +70,55 @@ fun main(){
     updatePointsCredit(5)
     accountsReport()
 }
+
+
+// Funções Uteis
+
+    //Filter
+
+fun main() {
+    val numbers = listOf(1, -2, 3, -4, 5, -6)
+
+    val positives = numbers.filter { x -> x > 0}
+
+    val negatives = numbers.filter { it < 0}
+
+    println("Numbers: $numbers")
+    println("Positive: $positives")
+    println("Negatives: $negatives")
+}
+
+    //map
+
+fun main() {
+
+    val numbers = listOf(1, -2, 3, -4, 5, -6)
+
+    val doubled = numbers.map { x -> x * 2 }
+
+    val tripled = numbers.map { x -> x * 3 }
+
+    println("Numbers: $numbers")
+    println("Doubled: $doubled")
+    println("Tripled: $tripled")
+
+}
+
+
+    //flatMap
+
+fun main() {
+
+
+    val fruitsBag = listOf("apple","orange","banana","grapes")  // 1
+    val clothesBag = listOf("shirts","pants","jeans")           // 2
+    val cart = listOf(fruitsBag, clothesBag)                    // 3
+    val mapBag = cart.map { it }                                // 4
+    val flatMapBag = cart.flatMap { it }                        // 5
+
+
+    println("Your bags are: $mapBag")
+    println("The things you bought are: $flatMapBag")
+}
+
+// Outras em https://play.kotlinlang.org/byExample/05_Collections/01_List
