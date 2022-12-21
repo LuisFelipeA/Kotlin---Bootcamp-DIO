@@ -124,7 +124,7 @@ fun main () {
 
 //Ranges: Ifs e loops com Char
 
-fun main(){
+fun main() {
 
     for (c1 in 'a'..'d') {
         print(c1)
@@ -138,7 +138,7 @@ fun main(){
 }
 
 
-fun main(){
+fun main() {
 
     val x = 2
     if (x in 1..5) {
@@ -149,4 +149,15 @@ fun main(){
     if (x !in 6..10) {
         print("x is not in range from 6 to 10")
     }
+}
+
+
+// Verificações de Igualdade == e ===
+
+fun main() {
+    val authors = setOf("Shakespeare", "Hemingway", "Twain")
+    val writers = setOf("Twain", "Shakespeare", "Hemingway")
+
+    println(authors == writers)
+    println(authors === writers)
 }
